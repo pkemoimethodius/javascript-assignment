@@ -1,14 +1,24 @@
+const readline =require ('readline');
+
+const rl =readline.createInterface({
+    input:process.stdin,
+    output: process.stdout
+
+})
+
+
+
 function grossSalary(basic,allowances,compensation){
     return basic+allowances+compensation;
-}
+  }
 
 
-function deductions(loan,insuarance){
+  function deductions(loan,insuarance){
   return loan+insuarance;
-}
+  }
 
 
-function netSalary(grossSalary,deductions){
+  function netSalary(grossSalary,deductions){
   if (grossSalary < 10000){
     tax=0;
   }else if(grossSalary > 10000 && grossSalary < 70000){
@@ -23,5 +33,11 @@ function netSalary(grossSalary,deductions){
     tax=grossSalary*0.19;
   }
   return grossSalary-tax-deductions;
-}
+  }
+
+  const gross=rl.question('what was is your gross salary ?',(input) =>{
+     gross=parseFloat(input);
+
+    rl.close();
+   })
 
